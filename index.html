@@ -1,42 +1,160 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> Gainesville data </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/main.css">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/series-label.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body>
 
+<header id="top" class="container mt-5 mb-5 pt-5 pb-5">
   <h1>Gainesville Data</h1>
 
   <h2>By Alexander Lugo</h2>
 
-  <div>
-    <p>Crime Rates</p>
-    <img id='crime-rates' class='onclick-div' src="images/crime.jpg" alt="Crime Rates">
-    <p><a href="https://www.flickr.com/photos/nullvalue/4188517246/in/photolist-7o8ffA-Lv5yFT-65ufZm-n1696B-2mzG7Tj-RXsF5c-4NHrGM-dNz6Ab-pVBui-uwyuwu-f6ZQXT-RMfy8w-2m6h1u7-HmDo5T-8WbuYf-dNjmXv-8WbvcA-fscf-F1uuc-8WbuKh-etVNU-2hCg3Vi-JUG2HQ-nxTkQN-4qTZ8c-2keNuDP-7iEXEN-paFtpv-2jzxmHN-921rsC-etVHe-6expPQ-bC9yQ6-2jXE994-8qC6BL-8qyYYn-cecWmu-h8xLA5-qgy527-bWQywD-qapyWf-55wDqo-bWQyDB-cYgh2d-4mif5E-bWQyGr-tZ6h2-mQE5YB-mQDU8v-fFS5EQ">Source of crime scene photo</a>
-      By Brandon Anderson on Flickr</p>
-  </div>
 
-    <div>
-      <p>GRU Rates</p>
-      <img id='gru-rates' class='onclick-div' src="images/gru.jpg" alt="GRU Rates">
-      <p><a href="https://www.flickr.com/photos/hossssy/4384001436/in/photolist-7Fp9TE-9iJVap-aAGUz3-9vC5Xv-57p67s-2i7uFGq-53vnjp-9bVBuD-Kbys16-6JXujx-r2cCiG-GKQTUr-fgBAUE-4F4qMc-sLwiJ-57p6bW-8HPTUW-M5XGRQ-gUe3MQ-a7Mgyp-6Qct4y-a7MjFa-gUdW3E-a7Qegu-gUe2HC-a7Mf8D-a7Qbem-asw6pJ-2imbUtv-27oga5d-UwC1nv-7opXph-aifgN6-fCKJXb-rxh5Zb-zXzWGD-8JDonq-7eXw5N-N1TyV-21BaA2S-aii6Fo-8JDoij-4sSnNW-BCxU7b-9vC3XM-23ByKP4-NUA5-28Qx6Vt-6JXu1B-MmQ2FV">Source of utility pole photo</a>
-        By hossssy on Flickr</p>
+    <p class="container mt-5 pt-5">Click on one of the images below to view data that corresponds with <br> a specific topic in Gainesville, FL.</p>
+
+  <div id="topDivs" class="container mt-5 mb-5 pt-5 pb-5">
+    <div class="row">
+      <div class="col">
+        <p>Crime Rate Data</p>
+        <img id='crime-rates' class='img-fluid' src="images/crime.jpg" alt="Crime Rates">
+        <p class="photoCredit">Photo via <a href="https://unsplash.com/photos/ffH_GkINfyY">Unsplash</a></p>
+      </div>
+      <div class="col">
+        <p>Utilities Rate Data</p>
+        <img id='gru-rates' class='img-fluid' src="images/gru.jpg" alt="GRU Rates">
+        <p class="photoCredit">Photo via <a href="https://unsplash.com/photos/LsRw9UXOuEc">Unsplash</a></p>
+      </div>
+      <div class="col">
+        <p>Development Data</p>
+        <img id='city-development' class='img-fluid' src="images/construction.jpg" alt="City Development">
+        <p class="photoCredit">Photo via <a href="https://unsplash.com/photos/6SZLqm3f2rc">Unsplash</a></p>
+      </div>
+      <div class="col">
+        <p>Expenditure Data</p>
+        <img id='city-expenditure' class='img-fluid' src="images/expenditure.jpg" alt="City Expenditure">
+        <p class="photoCredit">Photo via <a href="https://unsplash.com/photos/gbQ3EsFSdG8">Unsplash</a></p>
+      </div>
     </div>
+  </div>
+</header>
+
 
   <div id="crimeRatesData" class="data-div">
-    <p>DATA CHARTS GO HERE</p>
+    <div class="mt-5 mb-5 pt-5 pb-5">
+    <section id="arrestChart" class="dataViz">
+    <figure class="highcharts-figure">
+    <div id="container1"></div>
+    <p class="highcharts-description">
+        Basic line chart showing trends in a dataset. This chart includes the
+        <code>series-label</code> module, which adds a label to each line for
+        enhanced readability.
+    </p>
+    </figure>
+  </section>
+</div>
   </div>
 
+
     <div id="gruRatesData" class="data-div">
-      <p>DATA CHARTS GO HERE</p>
+      <div class="mt-5 mb-5 pt-5 pb-5">
+        <section id="gruRatesChart" class="dataViz">
+          <figure class="highcharts-figure">
+    <div id="container3"></div>
+    <p class="highcharts-description">
+        Basic line chart showing trends in a dataset. This chart includes the
+        <code>series-label</code> module, which adds a label to each line for
+        enhanced readability.
+    </p>
+</figure>
+</section>
+</div>
+
+
+<div class="mt-5 mb-5 pt-5 pb-5">
+  <section id="gruRevenueChart" class="dataViz">
+    <figure class="highcharts-figure">
+    <div id="container4"></div>
+    <p class="highcharts-description">
+        Basic line chart showing trends in a dataset. This chart includes the
+        <code>series-label</code> module, which adds a label to each line for
+        enhanced readability.
+    </p>
+</figure>
+</section>
+</div>
     </div>
 
 
+      <div id="cityDevelopmentData" class="data-div">
+        <div class="mt-5 mb-5 pt-5 pb-5">
+          <section id="permitChart" class="dataViz">
+            <figure class="highcharts-figure">
+    <div id="container5"></div>
+    <p class="highcharts-description">
+        Chart showing browser market shares. Clicking on individual columns
+        brings up more detailed data. This chart makes use of the drilldown
+        feature in Highcharts to easily switch between datasets.
+    </p>
+</figure>
+        </section>
+      </div>
 
+
+      <div class="mt-5 mb-5 pt-5 pb-5">
+        <section id="permitTypeChart" class="dataViz">
+          <figure class="highcharts-figure">
+    <div id="container6"></div>
+    <p class="highcharts-description">
+        Chart showing stacked columns for comparing quantities. Stacked charts
+        are often used to visualize data that accumulates to a sum. This chart
+        is showing data labels for each individual section of the stack.
+    </p>
+</figure>
+      </section>
+    </div>
+      </div>
+
+        <div id="cityExpenditureData" class="data-div">
+          <div class="mt-5 mb-5 pt-5 pb-5">
+            <section id="expenseChart" class="dataViz">
+              <figure class="highcharts-figure">
+        <div id="container7"></div>
+        <p class="highcharts-description">
+            Chart showing stacked columns for comparing quantities. Stacked charts
+            are often used to visualize data that accumulates to a sum. This chart
+            is showing data labels for each individual section of the stack.
+        </p>
+    </figure>
+          </section>
+        </div>
+        </div>
+
+        <footer id="bottom">
+        	<p>View source code on <a href="https://github.com/alugo002/web-apps-final-project">GitHub</a></p>
+          <button onclick="topFunction()" id="topButton" title="Go to top">^Top^</button>
+        </footer>
+
+       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.js" integrity="sha512-mq6TSOBEH8eoYFBvyDQOQf63xgTeAk7ps+MHGLWZ6Byz0BqQzrP+3GIgYL+KvLaWgpL8XgDVbIRYQeLa3Vqu6A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js" integrity="sha512-5/OHwmQzDSBS0Ous4/hlYoWLHd06/d2r7LdKZQVBXOA6PvOqWVXtdboiLTU7lQTGyVoKVTNkwi0ol4gHGlw5ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
        <script src="scripts/main.js"></script>
 
 </body>
