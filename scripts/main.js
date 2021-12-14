@@ -447,7 +447,7 @@ var expenseChart1 = Highcharts.chart('expenseChart', {
         type: 'column'
     },
     title: {
-        text: 'Number of Building Permits Issued by the City, 2016-2020'
+        text: 'Five of Gainesville City Government`s Favorite Vendors to Give Business to and How Much They Receive, 2021'
     },
     subtitle: {
         text: 'Source: <a href="https://data.cityofgainesville.org/browse?category=Public+Administration+%26+Finance&q=&sortBy=relevance&utf8=%E2%9C%93&page=1">data.cityofgainesville.org</a>'
